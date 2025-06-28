@@ -1,54 +1,80 @@
-
----
-
-## 📁 Task-2-CloudWatch/README.md
-
-```markdown
 # 📊 Task 2 – Cloud Monitoring and Alerts (AWS CloudWatch)
 
 ## ✅ Objective:
-Set up monitoring and alerting for a cloud-based application using **AWS CloudWatch**, with a custom dashboard and email-based alerts.
+Set up monitoring and alerting for a cloud-based application using **AWS CloudWatch**, with:
+- A custom dashboard displaying EC2 instance metrics
+- CloudWatch alarms configured to send email alerts
+- A billing alarm for AWS usage tracking
 
 ---
 
-## 🛠️ Tools Used:
-- AWS EC2 (monitored instance)
-- AWS CloudWatch (metrics, dashboards, alarms)
-- Amazon SNS (for email notifications)
+## 🧰 Tools Used:
+- **AWS CloudWatch** (for metrics and alarms)
+- **Amazon EC2** (monitored instance)
+- **Amazon SNS** (for email notifications)
+- **AWS Free Tier**
 
 ---
 
-## 📊 Monitored Resource:
-- **EC2 Instance**
-  - Metric: `CPUUtilization`
+## 🔍 Monitored Resource:
+- **EC2 Instance ID**: *(Instance ID used for CPU monitoring)*
+- **Monitored Metric**: `CPUUtilization`  
+- **Dashboard**: Custom dashboard created with a line widget showing live CPU usage
 
 ---
 
-## 🧪 Alarm Configuration:
-- Alarm Name: `EC2-CPU-Alert`
-- Condition: `CPUUtilization > 50%` for 1 datapoint in 5 minutes
-- Action: Sends email via SNS topic when triggered
-- Additional Alarm: Billing alert for charges > $1
+## 🔔 Alarm Configuration:
+
+### 📌 Alarm 1: EC2 CPU Alert
+- **Name**: `EC2-CPU-Alert`
+- **Metric**: CPUUtilization
+- **Condition**: CPU > 50% for 1 datapoint within 5 minutes
+- **State**: OK (EC2 was idle)
+- **Notification**: Email alert using Amazon SNS
+
+### 📌 Alarm 2: AWS Billing Alert
+- **Name**: `AWS TOTAL BILLING`
+- **Metric**: `EstimatedCharges`
+- **Condition**: Charges >= $1
+- **State**: OK (billing under limit)
+- **Purpose**: Prevent unexpected AWS charges
 
 ---
 
-## 📸 Screenshots:
-- CloudWatch dashboard
-- Alarm creation
-- SNS email confirmation
-- Billing alarm view
-
-📂 Stored in: `screenshots/`
+## 📨 Email Notification Setup:
+- Created an SNS topic: `codtech-task2-alerts`
+- Subscribed with email ID
+- Confirmed subscription via email
+- Alerts are triggered to email when alarm conditions are met
 
 ---
 
-## 📨 Email Alert Confirmation:
-An email alert was successfully set up and verified using SNS subscription.
+## 🖼️ Screenshots (Located in `screenshots/` folder):
+
+| Screenshot                | Description                             |
+|---------------------------|-----------------------------------------|
+| `dashboard.png`           | CloudWatch dashboard with EC2 metrics   |
+| `alarm-config.png`        | EC2-CPU alarm configuration             |
+| `email-confirmation.png`  | SNS email subscription confirmation     |
+| `alert-email.png` (opt.)  | Email received on alarm trigger         |
+| `billing-alarm.png`       | AWS billing alarm configuration         |
 
 ---
 
 ## 📝 Outcome:
-- Gained experience in AWS CloudWatch dashboards and alarms
-- Learned how to use SNS for cost-free alerting
-- Demonstrated billing awareness via cost alarm
+- Successfully monitored EC2 instance performance using CloudWatch
+- Created real-time dashboards for visibility
+- Configured and tested alarms with SNS email alerts
+- Set up AWS billing alarm as a precaution
 
+---
+
+## 🙋 Intern Info:
+- 👨‍💻 Name: Prasanna Anil Vharakat  
+- 🆔 Intern ID: CT08DM450  
+- 🏢 Organization: CODTECH IT Solutions Pvt. Ltd.  
+- 📅 Duration: May 8, 2025 – July 8, 2025
+
+---
+
+> _“Monitoring is the foundation of reliability in the cloud. If you can't see it, you can't fix it.”_
