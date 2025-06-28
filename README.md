@@ -1,4 +1,4 @@
-# 🌩️ CODTECH Cloud Computing Internship
+# CODTECH Cloud Computing Internship
 
 Welcome to my internship repository for the **Cloud Computing Internship** conducted by **CODTECH IT Solutions Pvt. Ltd.**  
 📅 **Internship Period:** May 8, 2025 – July 8, 2025  
